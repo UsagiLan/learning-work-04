@@ -21,25 +21,8 @@ export default new Router({
       path:'/index',
       name:'index',
       component:Index,
-    //   children:[
-    //   {
-    //     path:'/sendbox',
-    //     name:'sendbox',
-    //     component:Sendbox
-    //   },
-    //   {
-    //     path:'/editLetter',
-    //     name:'editLetter',
-    //     component:editLetter
-    //   },
-    //   {
-    //     path:'/deletebox',
-    //     name:'deletebox',
-    //     component:Deletebox
-    //   }
-    // ]
-  },
-    {
+      children:[
+      {
         path:'/sendbox',
         name:'sendbox',
         component:Sendbox
@@ -59,6 +42,9 @@ export default new Router({
         name:"inbox",
         component:Inbox
       }
+    ]
+  },
+    
 
     // {
     //   //path: '/about',
