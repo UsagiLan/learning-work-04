@@ -1,0 +1,39 @@
+.el-header{
+    background-color: #B3C0D1;
+    color: #333;
+    text-align: center;
+    line-height: 60px;
+}
+.el-avator.el-avator--icon.el-avator--circle.el-avaror-span{
+    margin:10px;
+    overflow: visible;
+}
+.iconspan>.el-avatar-span{
+    overflow: visible;
+}
+.el-aside.index-aside{
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+    line-height: 720px;
+    height: 720px;
+  }
+  .el-menu{
+      width: 200px;
+  }
+.el-menu-item{
+    width: 200px;
+}
+.el-main.index-main{
+    background:aliceblue;
+    line-height: 720px;
+    height: 720px;
+}
+.el-menu-item>a{
+    text-decoration: none;
+    color:#000;
+}
+.el-menu-item.router-link-active{
+    text-decoration: none;
+    color: #000;
+}

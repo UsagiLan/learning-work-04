@@ -1,0 +1,25 @@
+.edit{
+    width: 720px;
+    height: 720px;
+    background-color:#ace;
+}
+.sendLetter>.el-button{
+    margin:5px;
+}
+.addressor.el-input.el-input--suffix,.subject.el-input{
+    width: 80%;
+}
+.input1,.input2{
+    margin:10px;
+}
+.edit-content{
+    text-align: center;
+    margin-left: 53px;
+}
+.el-menu-item a{
+    text-decoration:none;
+}
+.router-link-active {
+    text-decoration: none;
+    color: black;
+}

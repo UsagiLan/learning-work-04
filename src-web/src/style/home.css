@@ -1,0 +1,33 @@
+.home-header.el-header{
+  background-color: #fff;
+}
+.el-main.home-main{
+  background:url('../assets/home.png');
+  color: #333;
+  text-align: center;
+  height: 600px;
+  width: 100%;
+}
+.login{
+  width: 300px;
+  height: 300px;
+  position: relative;
+  top:150px;
+  left:1000px;
+}
+.login>span{
+  color: #fff;
+  display:block;
+  height: 50px;
+  line-height: 50px;
+}
+.el-main .input{
+  display: inline-block;
+  width: 250px;
+  margin:10px 25px 10px 25px;
+}
+.el-button.login-button.is-plain {
+   width: 100px;
+   margin: 20px 100px 20px 100px;
+}
+
