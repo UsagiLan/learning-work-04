@@ -2,6 +2,7 @@
     <div class="edit">
         <div class="sendLetter">
             <el-button>发送</el-button>
+            <el-button>添加抄送</el-button>
             <el-button>关闭</el-button>
         </div> 
         <div class="demo-input-suffix">
@@ -14,14 +15,8 @@
               <el-input class='subject' v-model="inputsubject"> </el-input>
           </div>
         <div class="edit-content">
-            <table>
-                <tr>
-                    <td class="content-name">正&nbsp;&nbsp;&nbsp;文</td>
-                    <td>
-                        <textarea name="letter" cols="67" rows="20" wrap=“physical/(hard)” v-model="content"></textarea>
-                    </td>
-                </tr>
-            </table>    
+            <span>正&nbsp;&nbsp;&nbsp;文&nbsp;</span>
+            <textarea name="letter"  wrap=“physical/(hard)” v-model="content"></textarea>
         </div>
        </div>
      </div>

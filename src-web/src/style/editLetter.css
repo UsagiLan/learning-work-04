@@ -1,7 +1,5 @@
-.edit{
-    width: 720px;
-    height: 720px;
-    background-color:#ace;
+.edit,.sendLetter{
+    width: 100%;
 }
 .sendLetter>.el-button{
     margin:5px;
@@ -12,13 +10,23 @@
 .input1,.input2{
     margin:10px;
 }
-.edit-content{
-    text-align: center;
-    margin-left: 53px;
+.edit-content{ 
+    margin:10px;
 }
+/* 将span与textarea顶部对齐*/
+.edit-content>span{
+    vertical-align: top;
+}
+/* 定义textarea的样式定义宽度和高度 */
+.edit-content>textarea{
+    height: 500px;
+    width: 80%;
+}
+/* 修改router-link的样式 */
 .el-menu-item a{
     text-decoration:none;
 }
+/* 修改router-link的点击时的样式 */
 .router-link-active {
     text-decoration: none;
     color: black;

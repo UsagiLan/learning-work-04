@@ -21,25 +21,9 @@ export default new Router({
       path:'/index',
       name:'index',
       component:Index,
-    //   children:[
-    //   {
-    //     path:'/sendbox',
-    //     name:'sendbox',
-    //     component:Sendbox
-    //   },
-    //   {
-    //     path:'/editLetter',
-    //     name:'editLetter',
-    //     component:editLetter
-    //   },
-    //   {
-    //     path:'/deletebox',
-    //     name:'deletebox',
-    //     component:Deletebox
-    //   }
-    // ]
-  },
-    {
+      redirect:'/inbox',
+      children:[
+      {
         path:'/sendbox',
         name:'sendbox',
         component:Sendbox
@@ -59,14 +43,7 @@ export default new Router({
         name:"inbox",
         component:Inbox
       }
-
-    // {
-    //   //path: '/about',
-    //   //name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (about.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //  // component: () => import(/* webpackChunkName: "about" */ './pages/About.vue')
-    // }
+    ]
+  }
   ]
 })

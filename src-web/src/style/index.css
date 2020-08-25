@@ -15,21 +15,22 @@
     background-color: #fff;
     color: #333;
     text-align: center;
-    line-height: 720px;
-    height: 720px;
   }
-  .el-menu{
-      width: 200px;
-  }
-.el-menu-item{
+.el-col.el-col-12{
+    width: 100%;
+}
+.el-menu-vertical-demo.el-menu.item-url,.el-menu{
     width: 200px;
+}
+ul.el-menu {
+    border-right: 0px;
 }
 .el-main.index-main{
     background:aliceblue;
-    line-height: 720px;
-    height: 720px;
+    width: 100%;
+    padding:0px;
 }
-.el-menu-item>a{
+a{
     text-decoration: none;
     color:#000;
 }

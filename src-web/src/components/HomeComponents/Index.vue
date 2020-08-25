@@ -10,7 +10,7 @@
              <div class='iconspan' >
                   <el-avatar class='el-avatar-span' icon="el-icon-user-solid"></el-avatar>
                   <span>
-                      <el-button type="text">退出登陆</el-button>
+                      <el-button type="text" @click="go()">退出登陆</el-button>
                   </span>
              </div>
             </el-col>
@@ -20,23 +20,35 @@
                <el-aside  class='index-aside' width="200px">
                   <el-row class="tac" width='200px'> 
                     <el-col :span="12">
-                        <el-menu  class="el-menu-vertical-demo" >
-                            <el-menu-item >
-                                <i class="el-icon-edit"></i>
-                                <router-link to='/editLetter'>写信</router-link>
-                            </el-menu-item>
-                            <el-menu-item >
-                                <i class="el-icon-menu"></i>
-                                <router-link to='/inbox'>收件箱</router-link>
-                            </el-menu-item>
-                            <el-menu-item >
-                                <i class="el-icon-circle-check"></i>
-                               <router-link to='/sendbox'>已发送</router-link>
-                            </el-menu-item>
-                            <el-menu-item >
-                                <i class="el-icon-delete"></i>
-                               <router-link to='/deletebox'>已删除</router-link>
-                            </el-menu-item>
+                        <el-menu  class="el-menu-vertical-demo,item-url" >
+                            <router-link to='/editLetter'>
+                                <el-menu-item >
+                                    <i class="el-icon-edit"></i>
+                                    <span slot="title">写信</span>
+                                    <!-- <router-link to='/editLetter'>写信</router-link> -->
+                                </el-menu-item>
+                            </router-link>
+                             <router-link to='/inbox'>
+                                 <el-menu-item >
+                                    <i class="el-icon-menu"></i>
+                                    <span slot="title">收件箱</span>
+                                <!-- <router-link to='/inbox'>收件箱</router-link> -->
+                                 </el-menu-item>
+                            </router-link>
+                            <router-link to='/sendbox'>
+                               <el-menu-item >
+                                   <i class="el-icon-circle-check"></i>
+                                   <span slot="title">已发送</span>
+                               <!-- <router-link to='/sendbox'>已发送</router-link> -->
+                               </el-menu-item>
+                            </router-link>
+                            <router-link to='/deletebox'>
+                                <el-menu-item >
+                                  <i class="el-icon-delete"></i>
+                                  <span slot="title">已删除</span>
+                               <!-- <router-link to='/deletebox'>已删除</router-link> -->
+                               </el-menu-item>
+                            </router-link>
                         </el-menu>
                     </el-col> 
                   </el-row>
@@ -54,8 +66,11 @@ export default {
   data(){
       return{}
   },
-  method:{
-
+  methods:{
+      go(){
+          this.$router.replace({path:'/'});
+          console.log('点击一次')
+      }
   }
 }
 </script>

@@ -2,7 +2,7 @@
   <div class="home">
       <el-container>
           <el-header class="home-header"></el-header>
-          <el-main class="home-main">
+          <el-main class="home-main" id='main'>
             <div class="login">
                 <span>58同城周报管理平台</span>
                 <el-input class='input' placeholder="账号" prefix-icon="el-icon-user-solid" v-model="name"></el-input>
@@ -32,12 +32,21 @@ export default {
     }
   },
  mounted () {
-    const that = this;
+    var login=document.getElementsByClassName('login')[0];
+    var main=document.getElementById('main');
+    //  页面大小改变，重新修改登陆部分的样式
     window.onresize = () => {
         return (() => {
-            window.screenWidth = document.body.clientWidth;
-            that.screenWidth = window.screenWidth
+           login.style.top=main.clientHeight/3+'px';
+           login.style.left=main.clientWidth/3*2+"px";
         })()
+    }
+    //页面一旦进入，就根据页面大小修改登陆部分的样式
+    window.onload=()=>{
+      return(()=>{
+        login.style.top=main.clientHeight/3+'px';
+        login.style.left=main.clientWidth/3*2+"px";
+      })()
     }
 },
 watch:{
@@ -58,7 +67,7 @@ watch:{
 },
   methods:{
     login(){
-      this.$router.push('/index');//记得传参
+      this.$router.replace('/index');//记得传参
       }
     }   
   }
