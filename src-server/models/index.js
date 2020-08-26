@@ -1,5 +1,4 @@
 const Mongoose = require('mongoose');
-const { resolve } = require('path');
 let connection = Mongoose.createConnection('mongodb://127.0.0.1:27017/weekly', {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -50,7 +49,7 @@ async function createUser (args) {
     };
     let result = await UserModel.create(Params);
     console.log('添加成功');
-    resolve(result);
+    return result;
 };
 // 写信
 async function createWeekly (args) {
