@@ -7,7 +7,7 @@ interface WeeklyInfo{
   time?: Date,
   status: number
 }
-// import {getInBox, getOutBox} from '../models/index';
+// import {getInBox, getOutBox, createWeekly} from '../models/index';
 import {tryCatchDetect} from '../utils/util'
 
 class WeeklyController {
@@ -46,6 +46,12 @@ class WeeklyController {
   public async deleteWeekly(id) {
     return await tryCatchDetect(async function() {
       // 
+    })
+  }
+
+  public async sendWeekly(body) {
+    return await tryCatchDetect(async function() {
+      // return await createWeekly(body)
     })
   }
 

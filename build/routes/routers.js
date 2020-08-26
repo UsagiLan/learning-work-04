@@ -26,6 +26,12 @@ module.exports = function (app) {
             }
         });
     });
+    app.post('/commit', function (req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log(req.body);
+            res.send(yield WeeklyController_1.default.sendWeekly(req.body));
+        });
+    });
     app.get('/receive/list', function (req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             let { username } = req.query;

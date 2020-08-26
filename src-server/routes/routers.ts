@@ -24,6 +24,17 @@ export = function (app) {
       })
     });
 
+    app.post('/commit', async function (req, res, next) {
+      // let {username} = req.b;
+      console.log(req.body);
+      res.send(await WeeklyController.sendWeekly(req.body));
+      // res.send({
+      //   code: 0,
+      //   message: "OK",
+      //   data:{}
+      // })
+    });
+
     app.get('/receive/list', async function (req, res, next) {
       let {username} = req.query;
       console.log(username);

@@ -52,5 +52,13 @@ class WeeklyController {
             });
         });
     }
+    sendWeekly(body) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield util_1.tryCatchDetect(function () {
+                return __awaiter(this, void 0, void 0, function* () {
+                });
+            });
+        });
+    }
 }
 exports.default = new WeeklyController();
