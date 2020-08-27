@@ -1,8 +1,7 @@
 import {request} from '../utils/request';
 import { stringify } from 'qs';
-import { ftoyHost, iyoujiaInterface } from './host';
-
+const host = "http://10.252.218.173:3001"
 //列表页接口
-export function fetchListData(params) {
-  return request(`${ftoyHost}/getLodgeList?${stringify(params)}`);
+export function getReceiveList(params) {
+  return request(`${host}/receive/list?${stringify(params)}`);
 }
