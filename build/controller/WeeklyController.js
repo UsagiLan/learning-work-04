@@ -9,21 +9,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const index_1 = require("../models/index");
 const util_1 = require("../utils/util");
 class WeeklyController {
     getReceiveList(username) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield util_1.tryCatchDetect(function () {
                 return __awaiter(this, void 0, void 0, function* () {
-                    return [{
-                            username: 'zhangsan',
-                            to: ['lisi', 'wangwu'],
-                            copy: ['xueqiu'],
-                            title: 'title1',
-                            content: 'content1',
-                            time: Date.now(),
-                            status: 1
-                        }];
+                    return yield index_1.getInBox(username);
                 });
             });
         });
@@ -32,6 +25,7 @@ class WeeklyController {
         return __awaiter(this, void 0, void 0, function* () {
             return yield util_1.tryCatchDetect(function () {
                 return __awaiter(this, void 0, void 0, function* () {
+                    return yield index_1.getOutBox({ name });
                 });
             });
         });
@@ -40,6 +34,7 @@ class WeeklyController {
         return __awaiter(this, void 0, void 0, function* () {
             return yield util_1.tryCatchDetect(function () {
                 return __awaiter(this, void 0, void 0, function* () {
+                    return yield index_1.getOutBox({ name, status: 0 });
                 });
             });
         });
@@ -56,6 +51,7 @@ class WeeklyController {
         return __awaiter(this, void 0, void 0, function* () {
             return yield util_1.tryCatchDetect(function () {
                 return __awaiter(this, void 0, void 0, function* () {
+                    return yield index_1.createWeekly(body);
                 });
             });
         });

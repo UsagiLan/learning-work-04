@@ -1,25 +1,27 @@
 const FunctionSet = require('./index');
-console.log(FunctionSet)
+// console.log(FunctionSet)
 // 添加新用户
 // let newUserRes = FunctionSet.createUser({
-//     username: 'wangergou',
-//     password: '1234',
+//     username: 'xixi',
+//     password: '123456',
 //     role: '主管',
 //     role_id: '2',
-//     name: '王二狗',
-//     email: 'wangergou@58.com'
-// })
-
- // 写信
-//  let newUserRes = FunctionSet.createWeekly({
-//     username: 'wangergou',
-//     to: ['zhangsan'],
-//     copy: ['lisi'],
-//     title: '开工啦哈哈哈哈哈哈11',
-//     content: '开工啦哈哈哈哈哈哈开工啦哈哈哈哈哈哈开工啦哈哈哈哈哈哈！！'
+//     name: '嘻嘻',
+//     email: 'xixi@58.com'
 // }).then(res => {
 //     console.log(res)
 // })
+
+ // 写信
+ let newUserRes = FunctionSet.createWeekly({
+    username: 'xixi',
+    to: ['zhangsan', 'lisi', 'yangshenglan'],
+    copy: ['lisi'],
+    title: '插入数据66',
+    content: '主表插入数据。子表插入数据。 blogid为刚插入主表的主键'
+}).then(res => {
+    console.log('外部最终写信返回结果===', res)
+})
 
 // 收件箱
 // FunctionSet.getInBox('zhangsan').then((res) => {
@@ -35,11 +37,11 @@ console.log(FunctionSet)
 // })
 
 // 查看某条邮件具体内容
-FunctionSet.getWeeklyContent('5f45c22726ffa56f633c6d12').then(res => {
+// FunctionSet.getWeeklyContent('5f45c22726ffa56f633c6d12').then(res => {
 
-})
+// })
 
 // 删除邮件
-FunctionSet.deleteWeekly('5f45c22726ffa56f633c6d12').then(res => {
+// FunctionSet.deleteWeekly('5f45c22726ffa56f633c6d12').then(res => {
     
-})
+// })
