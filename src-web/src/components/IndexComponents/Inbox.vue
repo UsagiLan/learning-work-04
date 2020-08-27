@@ -12,7 +12,10 @@
                 <el-table-column prop="subject" label="主题"></el-table-column>
                 <el-table-column fixed="right" label="操作" width="200">
                     <template slot-scope="scope">
-                        <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
+                        <!-- <router-link to="/inbox/look"> -->
+                            <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
+                        <!-- </router-link> -->
+                        <!-- <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button> -->
                     </template>
                </el-table-column>
             </el-table>
@@ -44,21 +47,29 @@ export default {
              {date:'2020-5-6',name:'李明',subject:'我是李明，为文复活复活办法'},
              {date:'2020-5-6',name:'李红',subject:"我是李红，也诶i死i会发生啦哈哈"},
              {date:'2020-5-6',name:'小花',subject:'大家好，我的迷你就是你的西宁安徽'}  
-         ]
+         ],
+         info:{}
        }
    },
    beforeMount(){
        var i=0;
        for(let item in this.data){
-             console.log(item);
+              console.log(item);
              i++;
        }
        this.number=i;
    },
    methods: {
+    //  getValue(){
+    //       this.bus.$emit('toView',this.info);
+    //    },
       handleClick(row) {
-        console.log(row);
-      }
+        //   this.info=row;
+        //   console.log(this.info);
+          this.$router.replace({path:'/look'});
+          this.$store.dispatch('getMail',row);
+        //   console.log(this.$store.state.mail);
+      },
     }
 }
 </script>

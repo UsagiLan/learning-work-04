@@ -6,6 +6,7 @@ import editLetter from './components/IndexComponents/editLetter.vue'
 import Inbox from './components/IndexComponents/Inbox.vue'
 import Sendbox from './components/IndexComponents/Sendbox.vue'
 import Deletebox from './components/IndexComponents/Deletebox.vue'
+import Look from './components/OparationCompontents/look.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -41,9 +42,19 @@ export default new Router({
       {
         path:'/inbox',
         name:"inbox",
-        component:Inbox
+        component:Inbox,
+        // children:[{
+        //   path:'/look',
+        //   name:'/look',
+        //   component:Look 
+        // }]
       }
     ]
-  }
+   },
+   {  
+     path:'/look',
+     name:'look',
+     component:Look       
+   }
   ]
 })

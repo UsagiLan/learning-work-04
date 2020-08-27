@@ -54,7 +54,8 @@
                   </el-row>
                </el-aside>
                <el-main class="index-main">
-                   <router-view></router-view> 
+                   <router-view>
+                </router-view> 
                </el-main>
            </el-container>
        </el-container>
@@ -69,7 +70,7 @@ export default {
   methods:{
       go(){
           this.$router.replace({path:'/'});
-          console.log('点击一次')
+        //   console.log('点击一次')
       }
   }
 }
