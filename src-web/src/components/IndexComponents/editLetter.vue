@@ -1,7 +1,7 @@
 <template>
     <div class="edit">
         <div class="sendLetter">
-            <el-button>发送</el-button>
+            <el-button @click="sendClick">发送</el-button>
             <el-button>添加抄送</el-button>
             <el-button>关闭</el-button>
         </div> 
@@ -22,6 +22,7 @@
      </div>
 </template>
     <script>
+    import {sendWeekly} from '@/services/index'
     export default {
        name:'editLetter',
        data(){
@@ -29,6 +30,21 @@
                inputname:'',
                inputsubject:'',
                content:''
+           }
+       },
+       methods:{
+           sendClick() {
+               let {inputname, inputsubject, content} = this;
+               let body = {
+                   username: "",
+                   to: [inputname],
+                   copy: [],
+                   title: inputsubject,
+                   content
+               }
+               sendWeekly(body).then(res => {
+                   console.log(res)
+               })
            }
        }
     }

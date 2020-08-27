@@ -7,6 +7,7 @@
     "server": "nodemon build/app.js"
   },
   "dependencies": {
+    "class-validator": "^0.12.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "element-ui": "^2.13.2",

@@ -24,17 +24,20 @@ export = function (app) {
       })
     });
 
+    // 写信
     app.post('/commit', async function (req, res, next) {
-      // let {username} = req.b;
       console.log(req.body);
       res.send(await WeeklyController.sendWeekly(req.body));
-      // res.send({
-      //   code: 0,
-      //   message: "OK",
-      //   data:{}
-      // })
+      
     });
 
+    // 编辑
+    app.post('/edit', async function (req, res, next) {
+      console.log(req.body);
+      res.send(await WeeklyController.editWeekly(req.body));
+    });
+
+    // 获取收件箱列表
     app.get('/receive/list', async function (req, res, next) {
       let {username} = req.query;
       console.log(username);
@@ -47,6 +50,23 @@ export = function (app) {
       res.send(await WeeklyController.deleteWeekly(id));
     });
 
-    
+    app.get('/sent/list', async function (req, res, next) {
+      let {username} = req.query;
+      console.log(username);
+      res.send(await WeeklyController.getSendList(username));
+    });
+
+    app.get('/delete/list', async function (req, res, next) {
+      let {username} = req.query;
+      console.log(username);
+      res.send(await WeeklyController.getDeleteList(username));
+    });
+
+    app.get('/weeklyInfo', async function (req, res, next) {
+      let {id} = req.query;
+      console.log(id);
+      res.send(await WeeklyController.getWeeklyInfo(id));
+    });
+
     
 };
