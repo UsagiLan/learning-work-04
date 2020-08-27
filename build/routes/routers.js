@@ -32,6 +32,12 @@ module.exports = function (app) {
             res.send(yield WeeklyController_1.default.sendWeekly(req.body));
         });
     });
+    app.post('/edit', function (req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log(req.body);
+            res.send(yield WeeklyController_1.default.editWeekly(req.body));
+        });
+    });
     app.get('/receive/list', function (req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             let { username } = req.query;
@@ -43,6 +49,27 @@ module.exports = function (app) {
         return __awaiter(this, void 0, void 0, function* () {
             let { id } = req.query;
             res.send(yield WeeklyController_1.default.deleteWeekly(id));
+        });
+    });
+    app.get('/sent/list', function (req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let { username } = req.query;
+            console.log(username);
+            res.send(yield WeeklyController_1.default.getSendList(username));
+        });
+    });
+    app.get('/delete/list', function (req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let { username } = req.query;
+            console.log(username);
+            res.send(yield WeeklyController_1.default.getDeleteList(username));
+        });
+    });
+    app.get('/weeklyInfo', function (req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let { id } = req.query;
+            console.log(id);
+            res.send(yield WeeklyController_1.default.getWeeklyInfo(id));
         });
     });
 };

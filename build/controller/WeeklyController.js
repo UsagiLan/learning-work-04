@@ -53,11 +53,27 @@ class WeeklyController {
         return __awaiter(this, void 0, void 0, function* () {
             return yield util_1.tryCatchDetect(function () {
                 return __awaiter(this, void 0, void 0, function* () {
-                    let errMsg = yield util_1.validateParams(WeeklyDto_1.CreateItemDto, body);
-                    if (errMsg) {
-                        throw new Error(errMsg);
-                    }
+                    yield util_1.validateParams(WeeklyDto_1.CreateItemDto, body);
                     return yield index_1.createWeekly(body);
+                });
+            });
+        });
+    }
+    editWeekly(body) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield util_1.tryCatchDetect(function () {
+                return __awaiter(this, void 0, void 0, function* () {
+                    yield util_1.validateParams(WeeklyDto_1.EditItemDto, body);
+                    return yield index_1.modifyWeekly(body);
+                });
+            });
+        });
+    }
+    getWeeklyInfo(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield util_1.tryCatchDetect(function () {
+                return __awaiter(this, void 0, void 0, function* () {
+                    return yield index_1.getWeeklyContent(id);
                 });
             });
         });

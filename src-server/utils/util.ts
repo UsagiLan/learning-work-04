@@ -30,6 +30,7 @@ export async function validateParams(dto, body) {
     errors.forEach(e => {
       errorMsg += `${Object.values(e.constraints).join(';')}`
     });
+    if (errorMsg) throw new Error(errorMsg);
     return errorMsg;
-  });
+  })
 }

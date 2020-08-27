@@ -7,10 +7,9 @@ interface WeeklyInfo{
   time?: Date,
   status: number
 }
-import {getInBox, getOutBox, createWeekly, deleteWeekly} from '../models/index';
+import {getInBox, getOutBox, createWeekly, deleteWeekly, modifyWeekly, getWeeklyContent} from '../models/index';
 import {tryCatchDetect, validateParams} from '../utils/util'
-import {CreateItemDto} from '../dto/WeeklyDto'
-import { validate } from 'class-validator'
+import {CreateItemDto, EditItemDto} from '../dto/WeeklyDto'
 
 class WeeklyController {
 
@@ -53,12 +52,24 @@ class WeeklyController {
 
   public async sendWeekly(body: CreateItemDto) {
     return await tryCatchDetect(async function() {
-      let errMsg = await validateParams(CreateItemDto, body);
-      if (errMsg) {
-        throw new Error(errMsg);
-      }
+      await validateParams(CreateItemDto, body);
       // return {}
       return await createWeekly(body)
+    })
+  }
+
+  public async editWeekly(body: EditItemDto) {
+    return await tryCatchDetect(async function() {
+      await validateParams(EditItemDto, body);
+      // return {}
+      return await modifyWeekly(body)
+    })
+  }
+
+  public async getWeeklyInfo(id) {
+    return await tryCatchDetect(async function() {
+      // return {}
+      return await getWeeklyContent(id)
     })
   }
 

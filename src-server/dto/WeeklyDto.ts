@@ -16,3 +16,15 @@ export class CreateItemDto {
   @IsNotEmpty()
   readonly content: String;
 }
+
+export class EditItemDto {
+
+  @IsNotEmpty()
+  readonly id: String;
+
+  @IsNotEmpty()
+  readonly title: String;
+
+  @IsNotEmpty()
+  readonly content: String;
+}

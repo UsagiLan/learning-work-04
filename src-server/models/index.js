@@ -114,11 +114,15 @@ async function deleteWeekly (id) {
 };
 // 修改邮件
 async function modifyWeekly (args) {
-    const { id, title, content } = args;
+    const { id, title = "", content = "" } = args;
+    if (!title && !content) return {};
+    let set = {}
+    if (title) set.title = title;
+    if (content) set.title = content;
     let result = await WeeklyModel.update({
         _id: id
     }, {
-        $set: { title: title, content: content }
+        $set: set
     });
     console.log(`ID---${id}的邮件修改成功====`, result);
     return result;
