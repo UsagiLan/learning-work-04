@@ -124,11 +124,25 @@ function deleteWeekly(id) {
     });
 }
 ;
+function modifyWeekly(args) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const { id, title, content } = args;
+        let result = yield WeeklyModel.update({
+            _id: id
+        }, {
+            $set: { title: title, content: content }
+        });
+        console.log(`ID---${id}的邮件修改成功====`, result);
+        return result;
+    });
+}
+;
 module.exports = {
     createUser: createUser,
     createWeekly: createWeekly,
     getInBox: getInBox,
     getOutBox: getOutBox,
     getWeeklyContent: getWeeklyContent,
-    deleteWeekly: deleteWeekly
+    deleteWeekly: deleteWeekly,
+    modifyWeekly: modifyWeekly
 };

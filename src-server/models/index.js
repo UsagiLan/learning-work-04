@@ -112,6 +112,17 @@ async function deleteWeekly (id) {
     console.log(`ID---${id}的邮件删除成功====`, result);
     return result;
 };
+// 修改邮件
+async function modifyWeekly (args) {
+    const { id, title, content } = args;
+    let result = await WeeklyModel.update({
+        _id: id
+    }, {
+        $set: { title: title, content: content }
+    });
+    console.log(`ID---${id}的邮件修改成功====`, result);
+    return result;
+};
 
 
 module.exports = {
@@ -120,5 +131,6 @@ module.exports = {
     getInBox: getInBox,
     getOutBox: getOutBox,
     getWeeklyContent: getWeeklyContent,
-    deleteWeekly: deleteWeekly
+    deleteWeekly: deleteWeekly,
+    modifyWeekly: modifyWeekly
 }
