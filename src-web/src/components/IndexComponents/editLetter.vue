@@ -36,7 +36,7 @@
            sendClick() {
                let {inputname, inputsubject, content} = this;
                let body = {
-                   username: "",
+                   username: "wangsi",
                    to: [inputname],
                    copy: [],
                    title: inputsubject,
