@@ -6,3 +6,10 @@ const host = "http://10.252.218.173:3001"
 export function getReceiveList(params) {
   return request(`${host}/receive/list?${stringify(params)}`);
 }
+
+export function sendWeekly(params) {
+  return request(`${host}/commit`,{
+    method: 'POST',
+    body: params
+  });
+}
