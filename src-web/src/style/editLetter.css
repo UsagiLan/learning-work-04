@@ -13,7 +13,15 @@
 .edit-content{ 
     margin:10px;
 }
-/* 将span与textarea顶部对齐*/
+.index{
+    display:flex;
+}
+.index>span{
+    display: inline-block;
+    width: 50px;
+    text-align: justify;
+}
+/* 将span与textarea顶部对齐*/ */
 .edit-content>span{
     vertical-align: top;
 }

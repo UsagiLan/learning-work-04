@@ -6,16 +6,21 @@
             <el-button>关闭</el-button>
         </div> 
         <div class="demo-input-suffix">
-            <div class="input1">
-               <span>收件人&nbsp;</span>
+            <div class="index input1">
+               <span>收件人</span>
+               <!-- <div class="index">收件人</div> -->
                <el-input class='addressor' suffix-icon="el-icon-circle-plus-outline" v-model="inputname"></el-input>
             </div>
-          <div class='input2'>
-              <span>主&nbsp;&nbsp;&nbsp;题&nbsp;</span>
-              <el-input class='subject' v-model="inputsubject"> </el-input>
+          <div class='index input2'>
+              <span>主题</span>
+                <!-- <div class="index">主题</div> -->
+               <el-input class='subject' v-model="inputsubject"> </el-input>
           </div>
-        <div class="edit-content">
-            <span>正&nbsp;&nbsp;&nbsp;文&nbsp;</span>
+        <div class="index edit-content">
+            <!-- ç -->
+              <!-- <div class="index"> -->
+                   <span>正文</span>
+              <!-- </div> -->
             <textarea name="letter"  wrap=“physical/(hard)” v-model="content"></textarea>
         </div>
        </div>
