@@ -16,11 +16,12 @@ let UserSchema = new Mongoose.Schema({
     role: String,
     role_id: Number,
     name: String,
-    email: String
+    email: String,
 });
 // 周报数据结构
 let WeeklySchema = new Mongoose.Schema({
     username: String,
+    name: String,
     to: [String],
     copy: [String],
     title: String,
@@ -29,7 +30,11 @@ let WeeklySchema = new Mongoose.Schema({
         type: Date,
         default: Date.now()
     },
-    status: Number
+    status: Number,
+    // user_id: {
+    //     type: mongoose.Schema.Types.ObjectId, 
+    //     ref: 'User'
+    // }
 });
 // 用户信息模型
 let UserModel = connection.model('User', UserSchema);
@@ -54,8 +59,11 @@ async function createUser (args) {
 // 写信
 async function createWeekly (args) {
     const {username, to, copy, title, content} = args;
+    let userResult = await UserModel.findOne({username: username});
+    const name = userResult.name;
     const Params = {
         username,
+        name,
         to,
         copy,
         title,
@@ -64,8 +72,7 @@ async function createWeekly (args) {
         status: 1
     };
     let result = await WeeklyModel.create(Params);
-    console.log('新邮件写入成功===', result);
-    return result
+    return result;
 };
 // 收件箱
 async function getInBox (name) {

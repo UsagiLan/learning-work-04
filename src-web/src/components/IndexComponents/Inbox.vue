@@ -2,12 +2,12 @@
     <div>
         <!-- 统计所有的收件箱数 -->
         <div class="totalNumber">
-            <span>收件箱（共{{number}}封）</span>
+            <span>收件箱（共{{this.data.length}}封）</span>
         </div>
         <!-- 显示具体的收件箱并给每条信息点击绑定事件可以具体查看 -->
         <div>
              <el-table :data="data" style="width: 100%">
-                <el-table-column prop="time" label="日期" width="180"></el-table-column>
+                <el-table-column prop="time" label="日期" width="200"></el-table-column>
                 <el-table-column prop="name" label="姓名" width="180"></el-table-column>
                 <el-table-column prop="title" label="主题"></el-table-column>
                 <el-table-column fixed="right" label="操作" width="200">
@@ -25,17 +25,8 @@ export default {
     name:'inbox',
     data(){
        return{
-            number:0,
             data:[],
        }
-   },
-   beforeMount(){
-       var i=0;
-       for(let item in this.data){
-              console.log(item);
-                i++;
-       }
-       this.number=i;
    },
    mounted() {
        getReceiveList({username: "lizhen"}).then(res => {
@@ -44,7 +35,6 @@ export default {
        })
    },
    methods: {
-   
       handleClick(row) {
           //跳转路由，跳转到邮件查看页面
           this.$router.replace({path:'/look'});

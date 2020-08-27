@@ -8,7 +8,7 @@
                 <el-main class="mail-intro-info">
                     <div>
                         <span>主题：</span>
-                        <span>{{this.mail.subject}}</span>
+                        <span>{{this.mail.title}}</span>
                     </div>
                     <div>
                         <span>发件人：</span>
@@ -16,18 +16,18 @@
                     </div>
                     <div>
                         <span>时&nbsp;&nbsp;&nbsp;间:</span>
-                        <span>{{this.mail.date}}</span>
+                        <span>{{this.mail.time}}</span>
                     </div>
                     <div>
                         <span>收件人：</span>
-                        <span></span>
+                        <span>{{this.mail.to}},{{this.mail.copy}}</span>
                     </div>
                 </el-main>
             </el-container>
         </el-header>
         <el-main class="mail-content">
             <div></div>
-            <div class="content">{{this.mail.subject}}</div>
+            <div class="content">{{this.mail.content}}</div>
         </el-main>
     </el-container>
 </template>
@@ -36,7 +36,7 @@ export default {
     name:'look',
     data(){
         return{
-            mail:{}
+            mail:{},
         }
     },
     beforeMount(){
