@@ -1,0 +1,35 @@
+.mail-head.el-header{
+    /* height: 110px; */
+    background: #ffffff;
+}
+.mail-intro{
+    height: 136px;
+    /* background:gray; */
+}
+.el-icon-back.mail-intro-icon{
+    width: 50px;
+}
+.mail-intro-info>div{
+    font-size:14px;
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+}
+.mail-intro-info>div:first-child{
+    font-size:24px;
+    font-weight: 600;
+}
+.mail-content{
+    width: 100%;
+    color: black;
+}
+.mail-content>div:first-child{
+    height: 1px;
+    width: 100%;
+    border-top:solid 1px rgb(0,0,0,0.4);
+}
+.mail-content>div:nth-child(2){
+    margin:5px;
+    padding: 5px;
+    border-bottom:solid 1px rgb(0,0,0,0.4);
+}
