@@ -9,7 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.tryCatchDetect = void 0;
+exports.validateParams = exports.tryCatchDetect = void 0;
+const class_validator_1 = require("class-validator");
 function tryCatchDetect(func) {
     return __awaiter(this, void 0, void 0, function* () {
         let result = null;
@@ -31,3 +32,20 @@ function tryCatchDetect(func) {
     });
 }
 exports.tryCatchDetect = tryCatchDetect;
+function validateParams(dto, body) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let valid = new dto();
+        Object.keys(body).forEach(key => {
+            valid[key] = body[key];
+        });
+        console.log(body);
+        return class_validator_1.validate(valid).then(errors => {
+            let errorMsg = '';
+            errors.forEach(e => {
+                errorMsg += `${Object.values(e.constraints).join(';')}`;
+            });
+            return errorMsg;
+        });
+    });
+}
+exports.validateParams = validateParams;

@@ -1,3 +1,5 @@
+import { validate } from "class-validator";
+
 export async function tryCatchDetect(func) {
   let result = null;
   try{
@@ -15,4 +17,19 @@ export async function tryCatchDetect(func) {
     }
   }
   
+}
+
+export async function validateParams(dto, body) {
+  let valid = new dto();
+  Object.keys(body).forEach(key => {
+    valid[key] = body[key]
+  });
+  console.log(body)
+  return validate(valid).then(errors => {
+    let errorMsg = '';
+    errors.forEach(e => {
+      errorMsg += `${Object.values(e.constraints).join(';')}`
+    });
+    return errorMsg;
+  });
 }
