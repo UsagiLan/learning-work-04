@@ -24,10 +24,11 @@ let UserSchema = new Mongoose.Schema({
     role: String,
     role_id: Number,
     name: String,
-    email: String
+    email: String,
 });
 let WeeklySchema = new Mongoose.Schema({
     username: String,
+    name: String,
     to: [String],
     copy: [String],
     title: String,
@@ -36,7 +37,7 @@ let WeeklySchema = new Mongoose.Schema({
         type: Date,
         default: Date.now()
     },
-    status: Number
+    status: Number,
 });
 let UserModel = connection.model('User', UserSchema);
 let WeeklyModel = connection.model('Weekly', WeeklySchema);
@@ -60,8 +61,11 @@ function createUser(args) {
 function createWeekly(args) {
     return __awaiter(this, void 0, void 0, function* () {
         const { username, to, copy, title, content } = args;
+        let userResult = yield UserModel.findOne({ username: username });
+        const name = userResult.name;
         const Params = {
             username,
+            name,
             to,
             copy,
             title,
@@ -70,7 +74,6 @@ function createWeekly(args) {
             status: 1
         };
         let result = yield WeeklyModel.create(Params);
-        console.log('新邮件写入成功===', result);
         return result;
     });
 }
