@@ -16,27 +16,27 @@ function checkStatus(response) {
   });
 }
 
-function getResponseData(res) {
-  return new Promise((resolve, reject) => {
-    let rejectData = {
-      desc: res.api.desc
-    }
-    if (res.result) {
-      rejectData['message'] = res.result.message;
-    } else {
-      rejectData['message'] = 'api接口请求失败';
-    }
-    if (res.api && res.api.code == 0) {
-      if (res.result && res.result.code == 1) {
-        resolve(res.result.data);
-      } else {
-        reject(rejectData);
-      }
-    } else {
-      reject(rejectData);
-    }
-  });
-}
+// function getResponseData(res) {
+//   return new Promise((resolve, reject) => {
+//     let rejectData = {
+//       desc: res.api.desc
+//     }
+//     if (res.result) {
+//       rejectData['message'] = res.result.message;
+//     } else {
+//       rejectData['message'] = 'api接口请求失败';
+//     }
+//     if (res.api && res.api.code == 0) {
+//       if (res.result && res.result.code == 1) {
+//         resolve(res.result.data);
+//       } else {
+//         reject(rejectData);
+//       }
+//     } else {
+//       reject(rejectData);
+//     }
+//   });
+// }
 
 /**
  * Requests a URL, returning a promise.
@@ -63,7 +63,7 @@ export function request(url, options) {
   return fetch(url, newOptions)
     .then(checkStatus)
     .then(response => response.json())
-    .then(getResponseData);
+    
     // .catch(err => ({ err }));  // 外部catch
 }
 
