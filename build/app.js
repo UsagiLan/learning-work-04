@@ -23,8 +23,9 @@ app.use((req, res, next) => __awaiter(this, void 0, void 0, function* () {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.header("X-Powered-By", ' 3.2.1');
     res.header("Content-Type", "application/json;charset=utf-8");
+    console.log(req.method);
     if (req.method == "OPTIONS") {
-        res.status = 200;
+        res.sendStatus(200);
     }
     next();
 }));
