@@ -23,6 +23,7 @@
     </div>
 </template>
 <script>
+import {getReceiveList} from '@/services/index.js'
 export default {
     name:'inbox',
     data(){
@@ -58,6 +59,11 @@ export default {
              i++;
        }
        this.number=i;
+   },
+   mounted() {
+       getReceiveList({username: "lizhen"}).then(res => {
+           console.log(res)
+       })
    },
    methods: {
     //  getValue(){

@@ -10,14 +10,18 @@ var logger = require('morgan');
 let nunjucks = require('nunjucks')
 var app = express();
 
-// view engine setup
-// app.use('/static', express.static(path.join(__dirname, 'static')));
-// app.set('view engine', 'nunjucks');
-// console.log(path.join(__dirname, '../src-server/views'))
-// nunjucks.configure(path.join(__dirname, '../src-server/views'), {
-//   autoescape: true,
-//   express: app
-// });
+app.use(async(req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://127.0.0.1:3000");
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header("Access-Control-Allow-Methods", "OPTIONS, GET, PUT, POST, DELETE");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("X-Powered-By", ' 3.2.1');
+  res.header("Content-Type", "application/json;charset=utf-8");
+  if (req.method == "OPTIONS") {
+      res.status = 200
+  }
+  next();
+});
 
 // express 静态资源缓存设置
 app.use('/', express.static(path.join(__dirname, '../static')));
