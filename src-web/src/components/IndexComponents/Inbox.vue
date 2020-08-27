@@ -8,14 +8,12 @@
         <div>
              <el-table :data="data" style="width: 100%">
                 <el-table-column prop="date" label="日期" width="180"></el-table-column>
-                <el-table-column prop="name" label="姓名" width="180"></el-table-column>
+                <el-table-column prop="name" label="发件人" width="180"></el-table-column>
                 <el-table-column prop="subject" label="主题"></el-table-column>
                 <el-table-column fixed="right" label="操作" width="200">
-                    <template slot-scope="scope">
-                        <!-- <router-link to="/inbox/look"> -->
+                    <!-- <template slot-scope="scope"> -->
+                        <template v-slot:default="scope">
                             <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
-                        <!-- </router-link> -->
-                        <!-- <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button> -->
                     </template>
                </el-table-column>
             </el-table>
@@ -60,15 +58,12 @@ export default {
        this.number=i;
    },
    methods: {
-    //  getValue(){
-    //       this.bus.$emit('toView',this.info);
-    //    },
+   
       handleClick(row) {
-        //   this.info=row;
-        //   console.log(this.info);
+          //跳转路由，跳转到邮件查看页面
           this.$router.replace({path:'/look'});
+          //将该条邮件信息传到查看页面
           this.$store.dispatch('getMail',row);
-        //   console.log(this.$store.state.mail);
       },
     }
 }
